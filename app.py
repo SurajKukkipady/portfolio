@@ -10,7 +10,7 @@ st.markdown(
         font-weight: bold;
         color: #FF5722; /* Orange color */
         text-align: center;
-        margin: 10px 0; /* Reduced margin */
+        margin: 10px 0;
     }
 
     /* Style for email and contact links */
@@ -18,34 +18,34 @@ st.markdown(
         font-size: 16px;
         color: #FFC107; /* Yellow color */
         text-align: center;
-        margin: 10px 0; /* Reduced margin */
+        margin: 10px 0;
     }
     .contact-info a {
         color: #FF5722; /* Orange color */
         text-decoration: none;
-        font-weight: bold;
     }
 
     /* Sidebar styling */
     .sidebar .sidebar-content {
         background-color: #FFF3E0; /* Light orange background */
-        padding: 15px; /* Reduced padding */
+        padding: 15px;
         border-radius: 10px;
     }
 
     /* Header for different sections */
     .section-header {
-        font-size: 24px; /* Reduced font size */
+        font-size: 24px;
         color: #FF5722; /* Orange color */
-        margin-top: 15px; /* Reduced top margin */
-        margin-bottom: 5px; /* Reduced bottom margin */
+        margin-top: 15px;
+        margin-bottom: 5px;
     }
 
     /* List styling */
     .section-content {
-        font-size: 16px; /* Reduced font size */
-        color: #333333;
-        margin: 5px 0; /* Reduced margins */
+        font-size: 16px;
+        color: #FFFFFF; /* White color */
+        margin: 5px 0;
+        line-height: 1.5;
     }
     </style>
     """,
@@ -54,35 +54,37 @@ st.markdown(
 
 # Sidebar for Navigation
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Home", "Skills", "Tools", "Experience", "Courses", "Education", "Contact"])
+page = st.sidebar.radio("Go to", ["Home", "Skills", "Experience", "Certifications", "Education", "Contact"])
 
 # Title and Header
 st.markdown('<div class="main-header">Suraj K - QA Engineer</div>', unsafe_allow_html=True)
 st.markdown(
-    '<div class="contact-info">suraj.kukkipady1@gmail.com | +91 866 015 3482 | <a href="https://www.linkedin.com/in/suraj-k/" target="_blank">LinkedIn</a></div>',
+    '<div class="contact-info">suraj.kukkipady1@gmail.com | +91 866 015 3482 | <a '
+    'href="https://www.linkedin.com/in/suraj-k/" target="_blank">LinkedIn</a></div>',
     unsafe_allow_html=True)
 
 # Conditional rendering based on sidebar selection
 if page == "Home":
     st.markdown('<div class="section-header">Welcome!</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-content">This is my portfolio website. Use the sidebar to navigate through different sections.</div>',
+        '<div class="section-content">This is my portfolio website. Use the sidebar to navigate through different '
+        'sections.</div>',
         unsafe_allow_html=True)
 
 elif page == "Skills":
     st.markdown('<div class="section-header">Skills</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-content">**Web Testing**, **API Testing**, **Mobile Testing**, **SQL**, **Communication**</div>',
+        '<div class="section-content">Web Testing, API Testing, Mobile Testing, SQL, Communication</div>',
         unsafe_allow_html=True)
 
-elif page == "Tools":
     st.markdown('<div class="section-header">Tools</div>', unsafe_allow_html=True)
     tools = """
     <div class="section-content">
-    **Jira**, **Postman**, **Strapi**, **Zephyr**, **Android Studio**, **Xcode**, **Metabase**, **Lambda Test**, **Selenium**, **Testim**, **Playwright**, **Zipy**, **Sentry**
+    Jira, Postman, Strapi, Zephyr, Android Studio, Xcode, Metabase, Lambda Test, Selenium, Testim, Playwright, Zipy, Sentry
     </div>
     """
     st.markdown(tools, unsafe_allow_html=True)
+
 
 elif page == "Experience":
     st.markdown('<div class="section-header">Professional Experience</div>', unsafe_allow_html=True)
@@ -118,24 +120,55 @@ elif page == "Experience":
     </div>
     """, unsafe_allow_html=True)
 
-elif page == "Courses":
+
+
+elif page == "Certifications":
     st.markdown('<div class="section-header">Courses</div>', unsafe_allow_html=True)
-    st.markdown('<div class="section-content">**Java, Python and Testing, ABC for Technology Training**</div>',
-                unsafe_allow_html=True)
-    st.markdown('<div class="section-content">Aug 2019 – Sep 2020</div>', unsafe_allow_html=True)
+
+    # Java, Python and Testing Certification
+    abc_cert = 'https://drive.google.com/file/d/1cjWG6PA2fk2ANRi7gJbeayGB6VLfzvL9/view?usp=drive_link'
+    st.markdown(
+        f'''
+        <div style="text-align:center; display: flex; align-items: center; justify-content: center; gap: 10px;">
+            <div class="section-content">Java, Python and Testing, ABC for Technology Training</div>
+            <a href="{abc_cert}" target="_blank"><button 
+            style="background-color:#FF5722;color:white;border:none;padding:10px 20px;border-radius:5px;cursor:pointer;">
+            View Certificate</button></a>
+        </div>
+        ''',
+        unsafe_allow_html=True
+    )
+
+    # Career Essentials in Generative AI Certification
+    linkedin_certificate_url = 'https://www.linkedin.com/learning/certificates/549eeefd3c17661de373018ea235ffd357fc16887c3751286bef340762035b96/'
+    st.markdown(
+        f'''
+        <div style="text-align:center; display: flex; align-items: center; justify-content: center; gap: 10px;">
+            <div class="section-content">Career Essentials in Generative AI by Microsoft and LinkedIn</div>
+            <a href="{linkedin_certificate_url}" target="_blank"><button 
+            style="background-color:#FF5722;color:white;border:none;padding:10px 20px;border-radius:5px;cursor:pointer;">
+            View Certificate</button></a>
+        </div>
+        ''',
+        unsafe_allow_html=True
+    )
+
+
+
 
 elif page == "Education":
     st.markdown('<div class="section-header">Education</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-content">**Bachelor of Engineering (ECE), Srinivas Institute of Technology, Mangalore**</div>',
+        '<div class="section-content">Bachelor of Engineering (ECE), Srinivas Institute of Technology, Mangalore</div>',
         unsafe_allow_html=True)
     st.markdown('<div class="section-content">Aug 2014 – Aug 2018 | Mangalore</div>', unsafe_allow_html=True)
 
 elif page == "Contact":
     st.markdown('<div class="section-header">Contact</div>', unsafe_allow_html=True)
     st.markdown('<div class="section-content">You can reach me at:</div>', unsafe_allow_html=True)
-    st.markdown('<div class="section-content">- **Email**: suraj.kukkipady1@gmail.com</div>', unsafe_allow_html=True)
-    st.markdown('<div class="section-content">- **Phone**: +91 866 015 3482</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-content">- Email: suraj.kukkipady1@gmail.com</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-content">- Phone: +91 866 015 3482</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-content">- **LinkedIn**: <a href="https://www.linkedin.com/in/suraj-k/" target="_blank">Suraj K</a></div>',
+        '<div class="section-content">- LinkedIn: <a href="https://www.linkedin.com/in/suraj-k/" '
+        'target="_blank">Suraj K</a></div>',
         unsafe_allow_html=True)
